@@ -49,6 +49,7 @@ window.addEventListener('load', () => {
     let showFav = document.getElementById('showFav');
     let displayFavoriteAlbum = document.getElementById('favoriteAlbum');
 
+    // Bind the array to the dropdown select list
     albumsArr.forEach(function (item, i) {
         // console.log(item, i);
         jbox.addAlbum(new Album(item[0], item[1]));
@@ -57,12 +58,14 @@ window.addEventListener('load', () => {
         albums.add(new Option(optionText, optionValue));
     });
 
+    // Get the Album to play and display
     play.addEventListener('click', () => {
         //console.log(albums.value);
         jbox.getAlbum(albums.value).play();
         console.log(jbox.getAlbum(albums.value).display());
     });
 
+    // Most played - Favorite album
     showFav.addEventListener('click', () => {
         displayFavoriteAlbum.innerHTML = jbox.favoriteAlbum();
     });
